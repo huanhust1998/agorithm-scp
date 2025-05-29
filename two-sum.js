@@ -32,10 +32,10 @@ Only one valid answer exists.
  */
 
 /**
- * 
- * @param {*} nums 
- * @param {*} target 
- * @returns 
+ *
+ * @param {*} nums
+ * @param {*} target
+ * @returns
  * Cách này độ phức tạp thời gian của thuật toán là O(n2), độ phức tạp của không gian là O(1)
  */
 function twoSum(nums, target) {
@@ -51,4 +51,22 @@ twoSum([2, 7, 11, 15], 9);
 twoSum([3, 2, 4], 6);
 twoSum([3, 3], 6);
 
+/**
+ * Cách này độ phức tạp thời gian là O(n), không gian là O(n)
+ */
 
+function twoSum2(nums, target) {
+  const boxMap = new Map();
+  for (let i = 0; i < nums.length; i++) {
+    const diff = target - nums[i];
+    if (boxMap.has(diff)) {
+      return [boxMap.get(diff), i];
+    } else {
+      boxMap.set(nums[i], i);
+    }
+  }
+}
+
+twoSum2([2, 7, 11, 15], 9);
+twoSum2([3, 2, 4], 6);
+twoSum2([3, 3], 6);
