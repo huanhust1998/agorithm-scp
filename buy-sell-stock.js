@@ -25,6 +25,7 @@ Constraints:
 
  */
 
+// Cách 1:
 function maxProfit(prices) {
   let buy = prices[0];
   let profit = 0;
@@ -37,4 +38,15 @@ function maxProfit(prices) {
     }
   }
   return profit;
+}
+
+// Cách 2:
+function maxProfit2(prices) {
+  let min = 0;
+  let maxResult = 0;
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i]) min = prices[i];
+    maxResult = Math.max(maxResult, prices[i] - min);
+  }
+  return maxResult;
 }
